@@ -1,0 +1,9 @@
+[submodule "git:/github.com/freewil/bitcoin-testnet-box.git"]
+	path = git:/github.com/freewil/bitcoin-testnet-box.git
+	url = ./testnet
+[submodule "git@github.com:freewil/bitcoin-testnet-box.git"]
+	path = git@github.com:freewil/bitcoin-testnet-box.git
+	url = ./testnet
+[submodule "testnet"]
+	path = testnet
+	url = git://github.com/freewil/bitcoin-testnet-box.git

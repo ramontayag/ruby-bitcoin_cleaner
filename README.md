@@ -1,6 +1,20 @@
 # BitcoinTestnet
 
-TODO: Write a gem description
+Makes development with Bitcoin a little easier. It has helpers that can be used to start, stop, clean the testnet.
+
+## Usage
+
+- Before the test suite starts, call `BitcoinTestnet.start`. This will start the Testnet and clean it. If you have already started the Testnet yourself manually, it will just clean it.
+- Before each spec, call `BitcoinTestnet.clean`. This will reset the Testnet, so it looks like it did the first time you started the Testnet.
+- After the test suite is finished, call `BitcoinTestnet.stop`. This turns off the Testnet and cleans if. If you started the Testnet manually, then it just cleans it.
+
+Sample with RSpec:
+
+    RSpec.configure do |config|
+      config.before(:suite) { BitcoinTestnet.start }
+      config.before(:each) { BitcoinTestnet.clean }
+      config.after(:suite) { BitcoinTestnet.stop }
+    end
 
 ## Installation
 
