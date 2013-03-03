@@ -7,7 +7,7 @@ module BitcoinTestnet
 
     def sweep
       if BitcoinTestnet.started_manually
-        puts "\n***** Since Testnet started manually; cleaning only"
+        puts "\n***** Since Testnet started manually; cleaning only. If you want to stop it, run: `cd #{TESTNET_DIR} && make stop`"
         Cleaner.clean
       else
         puts "\n***** Since the BitcoinTestnet started the Testnet, stop and clean"

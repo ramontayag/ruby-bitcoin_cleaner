@@ -11,7 +11,6 @@ module BitcoinTestnet
 
     def execute
       commands = ["cd #{TESTNET_DIR}"] + @commands
-      puts "Executing: #{commands.join(' && ')}"
       system commands.join(' && ')
     end
 

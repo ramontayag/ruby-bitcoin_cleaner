@@ -23,4 +23,12 @@ module BitcoinTestnet
   def self.stop
     Janitor.sweep
   end
+
+  def self.configure_rspec!
+    RSpec.configure do |c|
+      c.before(:suite) { BitcoinTestnet.start }
+      c.before(:each) { BitcoinTestnet.clean }
+      c.after(:suite) { BitcoinTestnet.stop }
+    end
+  end
 end

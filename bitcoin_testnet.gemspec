@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{A gem of helpers for making integration tests with the Bitcoin testnet a little easier.}
   gem.homepage      = ""
 
-  gem.files         = `git ls-files`.split($/)
+  gem.files         = `git ls-files`.split($/) + `cd #{BitcoinTestnet.TESTNET_DIR} && git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]

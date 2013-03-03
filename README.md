@@ -16,6 +16,9 @@ Sample with RSpec:
       config.after(:suite) { BitcoinTestnet.stop }
     end
 
+
+**Tip**: If you'll just use the above, you can configure it automatically by calling `BitcoinTestnet.configure_rspec!`.
+
 ## Installation
 
 Add this line to your application's Gemfile:
