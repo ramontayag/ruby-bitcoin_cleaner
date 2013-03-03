@@ -11,7 +11,7 @@ module BitcoinTestnet
         BitcoinTestnet.started_manually = true
         Cleaner.clean
       else
-        puts "***** Starting Testnet. To make boot up faster, start the Testnet manually: `cd #{TESTNET_DIR} && make start`"
+        puts "***** Starting Testnet. To make boot up faster, start the Testnet manually: `cd #{BitcoinTestnet.dir} && make start`"
         thread = Thread.new do
           Cleaner.clean
           Executor.execute "make start > /dev/null"
@@ -31,7 +31,7 @@ module BitcoinTestnet
         end
 
         unless Detector.exists?
-          fail "The bitcoin processes didn't seem to start. Please ensure that the bitcoin testnet servers started at `#{TESTNET_DIR}`"
+          fail "The bitcoin processes didn't seem to start. Please ensure that the bitcoin testnet servers started at `#{BitcoinTestnet.dir}`"
         end
       end
     end

@@ -10,7 +10,7 @@ module BitcoinTestnet
     end
 
     def execute
-      commands = ["cd #{TESTNET_DIR}"] + @commands
+      commands = ["cd #{BitcoinTestnet.dir}"] + @commands
       system commands.join(' && ')
     end
 

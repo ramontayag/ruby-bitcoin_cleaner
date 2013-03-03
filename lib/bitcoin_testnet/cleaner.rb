@@ -6,7 +6,7 @@ module BitcoinTestnet
     end
 
     def clean
-      commands = ["cd #{TESTNET_DIR}", "make clean > /dev/null"]
+      commands = ["cd #{BitcoinTestnet.dir}", "make clean > /dev/null"]
       system commands.join(' && ')
     end
 

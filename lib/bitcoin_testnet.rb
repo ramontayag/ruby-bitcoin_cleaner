@@ -8,9 +8,11 @@ require 'bitcoin_testnet/executor'
 require 'bitcoin_testnet/janitor'
 
 module BitcoinTestnet
-  TESTNET_DIR = File.expand_path File.join(File.dirname(__FILE__), '..', 'testnet')
   mattr_accessor :started_manually
   @@started_manually = false
+
+  mattr_accessor :dir
+  @@dir = nil
 
   def self.start
     Booter.boot
