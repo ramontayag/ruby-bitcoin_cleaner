@@ -10,7 +10,7 @@ module BitcoinTestnet
     end
 
     def processes
-      `ps -ef | grep bitcoin | grep -v grep`.split("\n")
+      `ps -ef | grep "bitcoind -datadir=" | grep -v grep`.split("\n")
     end
 
     def exists?
