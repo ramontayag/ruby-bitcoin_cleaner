@@ -12,7 +12,7 @@ Now, you have access to `BitcoinTestnet`.
 
 Second, you have to tell BitcoinTestnet where the testnet in a box directory is. I prefer to keep it in the test folder of my project. For example, with RSpec:
 
-    git submodule add https://github.com/freewil/bitcoin-testnet-box testnet
+    git submodule add https://github.com/freewil/bitcoin-testnet-box spec/testnet
 
 Then, in your `test_helper`/`spec_helper`:
 
@@ -20,15 +20,13 @@ Then, in your `test_helper`/`spec_helper`:
 
 Third, tell `BitcoinTestnet` when to do its work:
 
-- Before the test suite starts, call `BitcoinTestnet.start`. This will start the Testnet and clean it. If you have already started the Testnet yourself manually, it will just clean it.
-- Before each spec, call `BitcoinTestnet.clean`. This will reset the Testnet, so it looks like it did the first time you started the Testnet.
-- After the test suite is finished, call `BitcoinTestnet.stop`. This turns off the Testnet and cleans if. If you started the Testnet manually, then it just cleans it.
+- Before each spec, call `BitcoinTestnet.start`. This will start and clean the Testnet, so it looks like it did the first time you started the Testnet.
+- After the test suite is finished, call `BitcoinTestnet.stop`. This turns off the Testnet.
 
 Sample with RSpec:
 
     RSpec.configure do |config|
-      config.before(:suite) { BitcoinTestnet.start }
-      config.before(:each) { BitcoinTestnet.clean }
+      config.before(:each) { BitcoinTestnet.start }
       config.after(:suite) { BitcoinTestnet.stop }
     end
 

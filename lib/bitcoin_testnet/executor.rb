@@ -10,8 +10,10 @@ module BitcoinTestnet
     end
 
     def execute
-      commands = ["cd #{BitcoinTestnet.dir}"] + @commands
-      system commands.join(' && ')
+      Dir.chdir BitcoinTestnet.dir do
+        commands = @commands.map { |c| "#{c} > /dev/null"}
+        system commands.join(' && ')
+      end
     end
 
   end
