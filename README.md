@@ -35,7 +35,7 @@ Sample with RSpec:
 
 ### RSpec and VCR
 
-Cleaning the Testnet every time is slow. If you have VCR, you can make this a lot faster by calling `BitcoinTestnet.configure_rspec_and_vcr!` in your spec helper. With this, you won't need to call `BitcoinTestnet#start` and `BitcoinTestnet#stop`.
+Cleaning the Testnet every time is slow. If you have VCR, you can make this a lot faster by calling `BitcoinTestnet.configure_with_rspec_and_vcr!` in your spec helper. With this, you won't need to call `BitcoinTestnet#start` and `BitcoinTestnet#stop`.
 
 ## Installation
 
