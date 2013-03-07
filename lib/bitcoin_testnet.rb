@@ -8,6 +8,7 @@ require 'bitcoin_testnet/booter'
 require 'bitcoin_testnet/stopper'
 
 module BitcoinTestnet
+
   mattr_accessor :dir
   @@dir = nil
 
@@ -19,10 +20,22 @@ module BitcoinTestnet
     Stopper.stop
   end
 
-  def self.configure_rspec!
+  def self.configure_with_rspec_and_vcr!
     RSpec.configure do |c|
-      c.before(:each) { BitcoinTestnet.start }
-      c.after(:suite) { BitcoinTestnet.stop }
+      c.before(:each) do
+        if VCR.current_cassette
+          cassette_file = VCR.current_cassette.file
+          BitcoinTestnet.start unless File.exists?(cassette_file)
+        end
+      end
+
+      c.after(:each) do
+        if VCR.current_cassette
+          cassette_file = VCR.current_cassette.file
+          BitcoinTestnet.stop unless File.exists?(cassette_file)
+        end
+      end
     end
   end
+
 end

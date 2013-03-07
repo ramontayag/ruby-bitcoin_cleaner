@@ -14,7 +14,7 @@ module BitcoinTestnet
     end
 
     def exists?
-      processes.size == 2
+      processes.size >= 1
     end
 
   end

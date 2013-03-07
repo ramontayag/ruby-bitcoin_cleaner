@@ -20,6 +20,8 @@ Then, in your `test_helper`/`spec_helper`:
 
 Third, tell `BitcoinTestnet` when to do its work:
 
+**Note**: if you user RSpec and VCR, see "RSpec and VCR" section below.
+
 - Before each spec, call `BitcoinTestnet.start`. This will start and clean the Testnet, so it looks like it did the first time you started the Testnet.
 - After the test suite is finished, call `BitcoinTestnet.stop`. This turns off the Testnet.
 
@@ -31,14 +33,9 @@ Sample with RSpec:
     end
 
 
-**Tip**: If you'll just use the above, you can configure it automatically by calling `BitcoinTestnet.configure_rspec!`.
+### RSpec and VCR
 
-## TL;DR
-
-    require 'bitcoin_testnet'
-
-    BitcoinTestnet.dir = "path/to/testnet"
-    BitcoinTestnet.configure_rspec!
+Cleaning the Testnet every time is slow. If you have VCR, you can make this a lot faster by calling `BitcoinTestnet.configure_rspec_and_vcr!` in your spec helper. With this, you won't need to call `BitcoinTestnet#start` and `BitcoinTestnet#stop`.
 
 ## Installation
 
