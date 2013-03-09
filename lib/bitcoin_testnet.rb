@@ -6,6 +6,7 @@ require 'bitcoin_testnet/detector'
 require 'bitcoin_testnet/executor'
 require 'bitcoin_testnet/booter'
 require 'bitcoin_testnet/stopper'
+require 'bitcoin_testnet/vcr_integrator'
 
 module BitcoinTestnet
 
@@ -22,19 +23,8 @@ module BitcoinTestnet
 
   def self.configure_with_rspec_and_vcr!
     RSpec.configure do |c|
-      c.before(:each) do
-        if VCR.current_cassette
-          cassette_file = VCR.current_cassette.file
-          BitcoinTestnet.start unless File.exists?(cassette_file)
-        end
-      end
-
-      c.after(:each) do
-        if VCR.current_cassette
-          cassette_file = VCR.current_cassette.file
-          BitcoinTestnet.stop unless File.exists?(cassette_file)
-        end
-      end
+      c.before(:each) { VcrIntegrator.start }
+      c.after(:each) { VcrIntegrator.stop }
     end
   end
 
