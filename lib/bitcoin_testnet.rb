@@ -1,6 +1,6 @@
 require 'wait'
 require "bitcoin_testnet/version"
-require 'active_support/core_ext/module'
+require 'active_support/core_ext'
 
 require 'bitcoin_testnet/detector'
 require 'bitcoin_testnet/executor'

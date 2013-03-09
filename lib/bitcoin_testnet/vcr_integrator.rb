@@ -20,7 +20,9 @@ module BitcoinTestnet
     private
 
     def should_perform?
-      cassette_exists? || allow_unused_http_interactions?
+      return true if !cassette_exists? && allow_unused_http_interactions?
+      return true if !cassette_exists?
+      false
     end
 
     def cassette_exists?
