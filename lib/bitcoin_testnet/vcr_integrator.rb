@@ -1,12 +1,16 @@
 module BitcoinTestnet
   class VcrIntegrator
 
-    def self.start
-      self.new.start
+    def self.start(*args)
+      self.new(*args).start
     end
 
-    def self.stop
-      self.new.stop
+    def self.stop(*args)
+      self.new(*args).stop
+    end
+
+    def initialize(rspec_example)
+      @rspec_example = rspec_example
     end
 
     def start
@@ -20,6 +24,7 @@ module BitcoinTestnet
     private
 
     def should_perform?
+      return false unless @rspec_example.metadata[:vcr]
       return true if !cassette_exists? && allow_unused_http_interactions?
       return true if !cassette_exists?
       false

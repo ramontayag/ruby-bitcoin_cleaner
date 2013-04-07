@@ -23,8 +23,8 @@ module BitcoinTestnet
 
   def self.configure_with_rspec_and_vcr!
     RSpec.configure do |c|
-      c.before(:each) { VcrIntegrator.start }
-      c.after(:each) { VcrIntegrator.stop }
+      c.before(:each) { VcrIntegrator.start(example) }
+      c.after(:each) { VcrIntegrator.stop(example) }
     end
   end
 
