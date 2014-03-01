@@ -6,6 +6,8 @@ require 'bitcoin_testnet/detector'
 require 'bitcoin_testnet/executor'
 require 'bitcoin_testnet/booter'
 require 'bitcoin_testnet/stopper'
+require 'bitcoin_testnet/executes'
+require 'bitcoin_testnet/prepares_command'
 require 'bitcoin_testnet/vcr_integrator'
 
 module BitcoinTestnet
