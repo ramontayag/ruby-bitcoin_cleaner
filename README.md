@@ -14,13 +14,13 @@ Second, you have to tell BitcoinTestnet where the testnet in a box directory is.
 
     git submodule add https://github.com/freewil/bitcoin-testnet-box spec/testnet
 
+See the readme of `bitcoin-testnet-box` to see what version of `bitcoind` to install. The test net you download is configured with a certain version of the bitcoin daemon.
+
 Then, in your `test_helper`/`spec_helper`:
 
     BitcoinTestnet.dir = "spec/testnet"
 
 Third, tell `BitcoinTestnet` when to do its work:
-
-**Note**: if you user RSpec and VCR, see "RSpec and VCR" section below.
 
 - Before each spec, call `BitcoinTestnet.start`. This will start and clean the Testnet, so it looks like it did the first time you started the Testnet.
 - After the test suite is finished, call `BitcoinTestnet.stop`. This turns off the Testnet.
