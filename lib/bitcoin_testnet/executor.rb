@@ -11,7 +11,7 @@ module BitcoinTestnet
 
     def execute
       Dir.chdir BitcoinTestnet.dir do
-        commands = @commands.map { |c| "#{c} > /dev/null"}
+        commands = @commands.map { |c| "#{c} > /dev/null 2>&1"}
         system commands.join(' && ')
       end
     end

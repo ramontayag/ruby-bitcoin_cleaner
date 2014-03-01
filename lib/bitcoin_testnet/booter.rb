@@ -9,15 +9,15 @@ module BitcoinTestnet
       if Detector.exists?
         Stopper.stop
       else
-        Executor.execute "make clean"
+        Executes.command "make clean"
       end
 
       thread = Thread.new do
-        Executor.execute "make start"
+        Executes.command "make start"
       end
 
       Wait.new.until do
-        thread.status == false && Executor.execute("make getinfo")
+        thread.status == false && Executes.command("make getinfo")
       end
 
       unless Detector.exists?
