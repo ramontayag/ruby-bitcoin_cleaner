@@ -10,7 +10,7 @@ module BitcoinTestnet
     end
 
     def initialize(rspec_example)
-      @rspec_example = rspec_example
+      BitcoinTestnet.current_test = @rspec_example = rspec_example
     end
 
     def start
