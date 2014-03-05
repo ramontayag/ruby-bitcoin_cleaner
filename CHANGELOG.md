@@ -1,4 +1,4 @@
-# TBA
+# v0.6.0
 
 - remove embedded testnet
 
