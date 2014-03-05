@@ -1,3 +1,7 @@
+# v0.6.0
+
+- remove embedded testnet
+
 # v0.5.1
 
 - Do not record the vcr cassette if the example fails [#6]
