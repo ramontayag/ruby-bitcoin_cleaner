@@ -21,7 +21,7 @@ module BitcoinTestnet
       end
 
       unless Detector.exists?
-        fail "The bitcoin processes didn't seem to start. Please ensure that the bitcoin testnet servers started at `#{BitcoinTestnet.dir}`"
+        fail "The bitcoin processes didn't seem to start. Please ensure that the bitcoind have started at `#{BitcoinTestnet.dir}`"
       end
     end
 
