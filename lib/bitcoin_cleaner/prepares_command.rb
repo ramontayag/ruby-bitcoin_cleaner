@@ -1,4 +1,4 @@
-module BitcoinTestnet
+module BitcoinCleaner
   class PreparesCommand
 
     def self.for_silence(command)

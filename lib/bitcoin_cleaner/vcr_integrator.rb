@@ -1,4 +1,4 @@
-module BitcoinTestnet
+module BitcoinCleaner
   class VcrIntegrator
 
     def self.start(*args)
@@ -10,15 +10,15 @@ module BitcoinTestnet
     end
 
     def initialize(rspec_example)
-      BitcoinTestnet.current_test = @rspec_example = rspec_example
+      BitcoinCleaner.current_test = @rspec_example = rspec_example
     end
 
     def start
-      BitcoinTestnet.start if should_perform?
+      BitcoinCleaner.start if should_perform?
     end
 
     def stop
-      BitcoinTestnet.stop if should_perform?
+      BitcoinCleaner.stop if should_perform?
     end
 
     private

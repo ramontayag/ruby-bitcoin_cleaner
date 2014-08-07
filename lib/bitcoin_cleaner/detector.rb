@@ -1,4 +1,4 @@
-module BitcoinTestnet
+module BitcoinCleaner
   class Detector
 
     def self.processes

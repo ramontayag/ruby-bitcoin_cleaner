@@ -1,4 +1,4 @@
-module BitcoinTestnet
+module BitcoinCleaner
   class Booter
 
     def self.boot(*args)
@@ -21,7 +21,7 @@ module BitcoinTestnet
       end
 
       unless Detector.exists?
-        fail "The bitcoin processes didn't seem to start. Please ensure that the bitcoind have started at `#{BitcoinTestnet.dir}`"
+        fail "The bitcoin processes didn't seem to start. Please ensure that the bitcoind have started at `#{BitcoinCleaner.dir}`"
       end
     end
 
