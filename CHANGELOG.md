@@ -1,3 +1,7 @@
+# TBA
+
+- Rename project from BitcoinTestnet to BitcoinCleaner
+
 # v0.6.0
 
 - remove embedded testnet
