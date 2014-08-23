@@ -1,6 +1,6 @@
 require "spec_helper"
 
-module BitcoinTestnet
+module BitcoinCleaner
   describe PreparesCommand do
 
     describe ".for_silence" do

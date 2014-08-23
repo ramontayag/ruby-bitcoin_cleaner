@@ -7,6 +7,3 @@
 [submodule "testnet"]
 	path = testnet
 	url = git://github.com/freewil/bitcoin-testnet-box.git
-[submodule "spec/testnet"]
-	path = spec/testnet
-	url = git@github.com:freewil/bitcoin-testnet-box.git

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-module BitcoinTestnet
+module BitcoinCleaner
   describe Executor, ".execute" do
 
     it "executes the given commands piping stderr and sdout each to /dev/null" do

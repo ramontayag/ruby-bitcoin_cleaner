@@ -1,16 +1,18 @@
 require 'wait'
-require "bitcoin_testnet/version"
+require "bitcoin_cleaner/version"
 require 'active_support/core_ext'
 
-require 'bitcoin_testnet/detector'
-require 'bitcoin_testnet/executor'
-require 'bitcoin_testnet/booter'
-require 'bitcoin_testnet/stopper'
-require 'bitcoin_testnet/executes'
-require 'bitcoin_testnet/prepares_command'
-require 'bitcoin_testnet/vcr_integrator'
+require 'bitcoin_cleaner/detector'
+require 'bitcoin_cleaner/executor'
+require 'bitcoin_cleaner/booter'
+require 'bitcoin_cleaner/stopper'
+require 'bitcoin_cleaner/executes'
+require 'bitcoin_cleaner/prepares_command'
+require 'bitcoin_cleaner/vcr_integrator'
+require 'bitcoin_cleaner/check_vcr_cassette'
+require 'bitcoin_cleaner/determine_run'
 
-module BitcoinTestnet
+module BitcoinCleaner
 
   mattr_accessor :dir
   @@dir = nil
@@ -34,7 +36,7 @@ module BitcoinTestnet
 
     VCR.configure do |c|
       c.before_record do |interaction|
-        interaction.ignore! if BitcoinTestnet.current_test.exception
+        interaction.ignore! if BitcoinCleaner.current_test.exception
       end
     end
   end

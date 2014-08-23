@@ -1,3 +1,8 @@
+# 1.0.0.beta.1
+
+- Rename project from BitcoinTestnet to BitcoinCleaner
+- Use `-regtest` switch on bitcoind instead of the testnet
+
 # v0.6.0
 
 - remove embedded testnet
