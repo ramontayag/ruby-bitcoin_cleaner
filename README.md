@@ -2,13 +2,13 @@
 
 Makes development with Bitcoin a little easier. It has helpers that can be used to start, stop, clean the bitcoin daemon. The bitcoin daemon will be run in regtest mode.
 
-This gem been written using Bitcoin Core `0.9.2.1`. BitcoinCleaner takes advantage of the `regtest` option in the new version of Bitcoin Core. Starting `bitcoind -regtest` will create a private network that's a lot faster than the testnet, and easier to manage then a private testnet.
+This gem been written using Bitcoin Core `0.9.2.1`. BitcoinCleaner takes advantage of the `regtest` option in the new version of Bitcoin Core. Starting `bitcoind -regtest` will create a private network that's a lot faster than the testnet, and easier to manage than a private testnet.
 
 ## Usage
 
 1. Make sure that Bitcoin Core is installed in your system and `bitcoind` and `bitcoin-cli` are in your path.
 2. Require the library in your `test_helper`/`spec_helper`: `require 'bitcoin_cleaner'`. Now, you have access to `BitcoinCleaner`.
-3. In your `test_helper`/`spec_helper` add `BitcoinCleaner.conf_dir = "/path/to/conf/dir"`. This is the folder that contains the bitcoin.conf, and more importantly, the `regtest`. The wallet in `regtest/wallet.dat` will be deleted between runs to make the wallet pristine again. It normally looks like this:
+3. In your `test_helper`/`spec_helper` add `BitcoinCleaner.dir = "/path/to/conf/dir"`. This is the folder that contains the bitcoin.conf, and more importantly, the `regtest`. The wallet in `regtest/wallet.dat` will be deleted between runs to make the wallet pristine again. It normally looks like this:
 
 ```
 ~ ❯❯❯ ls ~/.bitcoin
