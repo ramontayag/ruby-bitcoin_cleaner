@@ -2,7 +2,7 @@
 
 Makes development with Bitcoin a little easier. It has helpers that can be used to start, stop, clean the bitcoin daemon. The bitcoin daemon will be run in regtest mode.
 
-This gem been written using Bitcoin Core `0.9.2.1`. BitcoinCleaner takes advantage of the `regtest` option in the new version of Bitcoin Core. Starting `bitcoind -regtest` will create a private network that's a lot faster than the testnet, and easier to manage then a private testnet.
+This gem been written using Bitcoin Core `0.9.2.1`. BitcoinCleaner takes advantage of the `regtest` option in the new version of Bitcoin Core. Starting `bitcoind -regtest` will create a private network that's a lot faster than the testnet, and easier to manage than a private testnet.
 
 ## Usage
 
