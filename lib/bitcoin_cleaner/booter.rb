@@ -2,26 +2,33 @@ module BitcoinCleaner
   class Booter
 
     def self.boot(*args)
-      self.new(*args).boot
-    end
+      Stopper.stop if Detector.exists?
 
-    def boot
-      if Detector.exists?
-        Stopper.stop
-      else
-        Executes.command "make clean"
-      end
-
+      pid_file = File.join(BitcoinCleaner.dir, "regtest", "bitcoind.pid")
       thread = Thread.new do
-        Executes.command "make start"
+        Executes.command "bitcoind -regtest -daemon -pid=#{pid_file}"
       end
 
       Wait.new.until do
-        thread.status == false && Executes.command("make getinfo")
+        thread.status == false && Detector.exists?
       end
 
-      unless Detector.exists?
-        fail "The bitcoin processes didn't seem to start. Please ensure that the bitcoind have started at `#{BitcoinCleaner.dir}`"
+      if Detector.exists?
+        generate_coins
+      else
+        message = [
+          "The bitcoin processes didn't seem to start",
+          "Please ensure that the bitcoind can be started",
+        ]
+        fail message*". "
+      end
+    end
+
+    def self.generate_coins
+      Executes.command "bitcoin-cli -regtest setgenerate true 101"
+      Wait.new.until do
+        default_account_balance = `bitcoin-cli -regtest getbalance ""`.to_f
+        default_account_balance > 0
       end
     end
 

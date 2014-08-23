@@ -9,6 +9,8 @@ require 'bitcoin_cleaner/stopper'
 require 'bitcoin_cleaner/executes'
 require 'bitcoin_cleaner/prepares_command'
 require 'bitcoin_cleaner/vcr_integrator'
+require 'bitcoin_cleaner/check_vcr_cassette'
+require 'bitcoin_cleaner/determine_run'
 
 module BitcoinCleaner
 
